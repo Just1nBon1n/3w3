@@ -1,4 +1,22 @@
 <?php
+	// Definir le tableau des langues disponible
+	$languesDispo = [];
+	$dossierI18n = scandir('i18n');
+	foreach($dossierI18n as $fichier) {
+		if ($fichier != '.' && $fichier != '..') {
+			$languesDispo[] = substr($fichier, 0, 2);
+		}
+	}
+
+	print_r($languesDispo);
+
+	// Test
+	// echo time();
+	//setcookie('patati', 'patata', 365*24*3600);
+	
+	// Test : recuperer la jarre de "cookie" du browser
+	//print_r($_COOKIE);
+
 	// Accès aux paramètres d'URL (QueryString) en PHP
 	// print_r($_GET);
 	// echo $_GET['lan'];
@@ -7,9 +25,16 @@
 	// 1. Par défaut la langue est fr
 	$langue = 'fr';
 
-	// 2. Si l'utilisateur choisi explicitement une autre langue...
+	// 2. Langue memoriser au prealable
+	if(isset($_COOKIE['choixLangue'])) {
+		$langue = $_COOKIE['choixLangue'];
+	}
+
+	// 3. Si l'utilisateur choisi explicitement une autre langue...
 	if(isset($_GET['lan'])) {
 		$langue = $_GET['lan'];
+		// Stocker la langue dans un temoin HTTP (cookie)
+		setcookie('choixLangue', $langue, time() + 30*24*3600);
 	}
 
 	// 1) Lire le fichier contenant le texte dans une chaîne de caractères.
@@ -54,8 +79,17 @@
 	<div class="conteneur">
 		<header>
 			<nav class="barre-haut">
-				<a class="" href="?lan=en&pays=Suède&patati=patata">en</a>
-				<a class="" href="?lan=fr">fr</a>
+
+				<!-- 
+				Boucle pour generer une balise A pour 
+				chaque fichier de langue dans le dossier i18n
+				-->
+
+				<a 
+					class="<?php if($langue=='en') {echo 'actif';} 
+					?>" href="?lan=en">en
+				</a>
+				
 			</nav>
 			<nav class="barre-logo">
 				<label for="cc-btn-responsive" class="material-icons burger">menu</label>
