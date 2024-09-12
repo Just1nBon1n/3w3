@@ -3,11 +3,11 @@
 	$languesDispo = [];
 	$dossierI18n = scandir('i18n');
 	foreach($dossierI18n as $fichier) {
-		if ($fichier != '.' && $fichier != '..') {
+		if (pathinfo($fichier, PATHINFO_EXTENSION) == 'json') {
 			$languesDispo[] = substr($fichier, 0, 2);
 		}
 	}
-
+	
 	print_r($languesDispo);
 
 	// Test
@@ -26,12 +26,13 @@
 	$langue = 'fr';
 
 	// 2. Langue memoriser au prealable
-	if(isset($_COOKIE['choixLangue'])) {
+	if(isset($_COOKIE['choixLangue']) && 
+		 in_array($_COOKIE['choixLangue'], $languesDispo)) {
 		$langue = $_COOKIE['choixLangue'];
 	}
 
 	// 3. Si l'utilisateur choisi explicitement une autre langue...
-	if(isset($_GET['lan'])) {
+	if(isset($_GET['lan']) && in_array($_GET['lan'], $languesDispo)) {
 		$langue = $_GET['lan'];
 		// Stocker la langue dans un temoin HTTP (cookie)
 		setcookie('choixLangue', $langue, time() + 30*24*3600);
@@ -60,7 +61,8 @@
 	// echo $_ent->placeholderRecherche;
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<!-- A completer -->
+<html lang="<?= $langue ?>" dir="">
 
 <head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,8 +71,8 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>teeTIM // fibre naturelle ... conception artificielle</title>
-	<meta name="description" content="Page d'accueil du concepteur de vêtements 100% fait au Québec, conçus par les étudiants du TIM à l'aide de designs produits par intelligence artificielle, et fabriqués avec des fibres 100% naturelles et biologiques.">
+	<title><?= $_->metaTitre ?></title>
+	<meta name="description" content="<?= $_->metaDesc ?>">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 </head>
@@ -85,10 +87,12 @@
 				chaque fichier de langue dans le dossier i18n
 				-->
 
-				<a 
-					class="<?php if($langue=='en') {echo 'actif';} 
-					?>" href="?lan=en">en
-				</a>
+				<?php foreach($languesDispo as $codeLangue) { ?>
+					<a 
+						class="<?php if($langue==$codeLangue) {echo 'actif';} 
+						?>" href="?lan=<?= $codeLangue ?>"
+					><?= $codeLangue ?></a>
+				<?php } ?>
 				
 			</nav>
 			<nav class="barre-logo">

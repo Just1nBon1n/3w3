@@ -1,8 +1,8 @@
 {
   "entete": {
-    "altLogo": "Home", 
+    "altLogo": "Home",
     "placeholderRecherche": "Search",
-    "menuTeeshirts": "T-shirts",
+    "menuTeeshirts": "Teeshirts",
     "menuCasquettes": "Caps",
     "menuHoodies": "Hoodies",
     "menuAide": "Help",
@@ -10,8 +10,8 @@
   },
   "pp": {
     "achatsTitre": "Your Purchases",
-    "navAchatsFaq": "FAQ",
-    "navAchatsLivraison": "Shipping Your Package",
+    "navAchatsFaq": "Frequently Asked Questions",
+    "navAchatsLivraison": "Your Parcel Shipping",
     "navAchatsConditions": "Terms of Sale",
     "navAchatsConfidentialite": "Privacy Policy",
     "aProposTitre": "About teeTIM",
@@ -24,14 +24,18 @@
     "droits": "All rights reserved"
   },
   "accueil": {
-    "amorceTitre": "T-shirts, hoodies, and caps made in Quebec 💯",
+    "metaTitre": "teeTIM // natural fiber ... artificial design",
+    "metaDesc": "Homepage of the 100% Quebec-made clothing designer, created by TIM students with designs produced by artificial intelligence and made from 100% natural and organic fibers.",
+    "amorceTitre": "Teeshirts, hoodies, and caps made in Quebec 💯",
     "amorceSousTitre": "Designed at TIM with ❤️",
     "amorceSousTitre2": "with a little help from DALL-E 😉",
-    "para1": "Today, the T-shirt is a staple in everyone's wardrobe. And in an era where environmental issues are more pressing than ever, we prefer T-shirts made in Quebec to reduce environmental impact and highlight local craftsmanship.",
-    "para2": "V-neck, round neck, loose or fitted, short sleeves or long sleeves for the chilly, plain or patterned to style an outfit... The T-shirt is available in a variety of colors, styles, and patterns."
-  }, 
+    "para1": "Today, the teeshirt is a wardrobe essential for everyone. And at a time when environmental issues are more relevant than ever, we prefer teeshirts made in Quebec to reduce the environmental impact and promote local craftsmanship.",
+    "para2": "V-neck, round neck, loose or fitted, short-sleeved or long-sleeved for those who get chilly, plain or patterned to style an outfit... The teeshirt is available in a variety of colors, styles, and patterns."
+  },
   "teeshirts": {
-    "titrePage": "Our T-shirts",
+    "metaTitre": "teeTIM // Comfortable locally made organic cotton teeshirts with interesting design",
+    "metaDesc": "[TO BE COMPLETED]",
+    "titrePage": "Our Teeshirts",
     "aVenir": "Coming soon..."
   }
 }
