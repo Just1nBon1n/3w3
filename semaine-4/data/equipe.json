@@ -1,0 +1,20 @@
+[
+  {
+    "id": "e0001", 
+    "nom": "John Watson",
+    "poste": "Président ressources intelligences artificielles",
+    "annee": 2004
+  },
+  {
+    "id": "e0002", 
+    "nom": "Nikka Moffat",
+    "poste": "Présidente développement des ressources divisées",
+    "annee": 2020
+  },
+  {
+    "id": "e0003", 
+    "nom": "Curtis Millen",
+    "poste": "Président vente et intégration",
+    "annee": 2017
+  }
+]

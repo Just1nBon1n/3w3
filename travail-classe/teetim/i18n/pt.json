@@ -1,0 +1,42 @@
+{
+  "entete": {
+    "altLogo": "Início",
+    "placeholderRecherche": "Buscar",
+    "menuTeeshirts": "Teeshirts",
+    "menuCasquettes": "Caps",
+    "menuHoodies": "Hoodies",
+    "menuAide": "Ajuda",
+    "menuNous": "Sobre Nós"
+  },
+  "pp": {
+    "achatsTitre": "Suas Compras",
+    "navAchatsFaq": "Perguntas Frequentes",
+    "navAchatsLivraison": "Envio do Seu Pacote",
+    "navAchatsConditions": "Termos de Venda",
+    "navAchatsConfidentialite": "Política de Privacidade",
+    "aProposTitre": "Sobre a teeTIM",
+    "aProposCompagnie": "A Empresa",
+    "aProposEquipe": "A Equipe",
+    "aProposEmplois": "Empregos",
+    "joindreTitre": "Contate-Nos",
+    "joindreTelEtiquette": "Gratuito: ",
+    "joindreCourrielEtiquette": "Email: ",
+    "droits": "Todos os direitos reservados"
+  },
+  "accueil": {
+    "metaTitre": "teeTIM // fibra natural ... design artificial",
+    "metaDesc": "Página inicial do designer de roupas 100% feitas no Quebec, criado por estudantes do TIM com designs produzidos por inteligência artificial e feitos com fibras 100% naturais e orgânicas.",
+    "amorceTitre": "Teeshirts, hoodies e bonés feitos no Quebec 💯",
+    "amorceSousTitre": "Desenhados no TIM com ❤️",
+    "amorceSousTitre2": "com uma ajudinha do DALL-E 😉",
+    "para1": "Hoje, o teeshirt é uma peça essencial do guarda-roupa de todos. E, numa época em que as questões ambientais são mais relevantes do que nunca, preferimos teeshirts feitos no Quebec para reduzir o impacto ambiental e promover o artesanato local.",
+    "para2": "Gola em V, gola redonda, solto ou justo, manga curta ou longa para quem sente frio, liso ou estampado para estilizar um look... O teeshirt está disponível em uma variedade de cores, estilos e padrões."
+  },
+  "teeshirts": {
+    "metaTitre": "teeTIM // Teeshirts de algodão orgânico confortáveis feitos localmente com design interessante",
+    "metaDesc": "[A SER COMPLETADO]",
+    "titrePage": "Nossos Teeshirts",
+    "aVenir": "Em breve..."
+  }
+}
+

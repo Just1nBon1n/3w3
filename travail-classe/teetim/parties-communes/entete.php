@@ -8,7 +8,7 @@
 		}
 	}
 	
-	print_r($languesDispo);
+	//print_r($languesDispo);
 
 	// Test
 	// echo time();
