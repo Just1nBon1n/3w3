@@ -87,12 +87,12 @@
 				chaque fichier de langue dans le dossier i18n
 				-->
 
-				<?php foreach($languesDispo as $codeLangue) { ?>
+				<?php foreach($languesDispo as $codeLangue) : ?>
 					<a 
 						class="<?php if($langue==$codeLangue) {echo 'actif';} 
 						?>" href="?lan=<?= $codeLangue ?>"
 					><?= $codeLangue ?></a>
-				<?php } ?>
+				<?php endforeach ?>
 				
 			</nav>
 			<nav class="barre-logo">

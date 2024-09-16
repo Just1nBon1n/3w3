@@ -36,13 +36,17 @@
     <h2>Équipe de direction</h2>
     <section class="equipe">
 
-      <!-- Gabarit employe -->
-      <article class="personne">
-        <img src="images/ID.png" alt="NOM">
-        <h3>NOM</h3>
-        <h4>POSTE</h4>
-        <p>ANNEE</p>
-      </article>
+      <?php foreach($equipe as $personne) { ?>
+
+        <!-- Gabarit employe -->
+        <article class="personne">
+          <img src="images/<?= $personne -> id ?>.png" alt="<?= $personne -> nom ?>">
+          <h3><?= $personne -> nom ?></h3>
+          <h4><?= $personne -> poste ?></h4>
+          <p><?= $personne -> annee ?></p>
+        </article>
+
+      <?php } ?> 
     </section>
   </main>
 </body>
