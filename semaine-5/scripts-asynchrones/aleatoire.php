@@ -9,6 +9,9 @@
    *    forme d'une chaîne JSON
    */
 
+  //Ralentir le script
+  sleep(2);
+
   $produitsJSON = file_get_contents("../data/produits.json");
   $produits = json_decode($produitsJSON);
   shuffle($produits);
