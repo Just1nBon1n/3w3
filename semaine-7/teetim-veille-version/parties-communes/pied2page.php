@@ -27,9 +27,9 @@
 				</section>
 			</div>
 			<p class="da">
-				&copy;teeTIM 
+				&copy;Teetim 
+				<?php echo date("Y"); ?> 
 				<?= $_pp->droits ?>
-				<?php echo date("Y"); ?>
 			</p>
 		</footer>
 	</div>

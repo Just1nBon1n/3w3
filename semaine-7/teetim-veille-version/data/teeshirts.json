@@ -1,0 +1,42 @@
+[
+  {
+      "id": "ts0001",
+      "nom": "Cute comme un poisson tropical",
+      "prix": 25.95
+  },
+  {
+      "id": "ts0002",
+      "nom": "Fauteuil illégal",
+      "prix": 20.5
+  },
+  {
+      "id": "ts0003",
+      "nom": "Un dunk dans l'univers",
+      "prix": 22.75
+  },
+  {
+      "id": "ts0004",
+      "nom": "Monstre douillet",
+      "prix": 25.95
+  },
+  {
+      "id": "ts0005",
+      "nom": "Bleu comme une orange",
+      "prix": 25.95
+  },
+  {
+      "id": "ts0006",
+      "nom": "Camarade basque",
+      "prix": 20.5
+  },
+  {
+      "id": "ts0007",
+      "nom": "Chaton moteur",
+      "prix": 27.5
+  },
+  {
+      "id": "ts0008",
+      "nom": "Et vogue le navire",
+      "prix": 15.5
+  }
+]

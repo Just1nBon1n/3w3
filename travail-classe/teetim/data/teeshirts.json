@@ -1,42 +1,114 @@
-[
-  {
-      "id": "ts0001",
-      "nom": "Cute comme un poisson tropical",
-      "prix": 25.95
-  },
-  {
-      "id": "ts0002",
-      "nom": "Fauteuil illégal",
-      "prix": 20.5
-  },
-  {
-      "id": "ts0003",
-      "nom": "Un dunk dans l'univers",
-      "prix": 22.75
-  },
-  {
-      "id": "ts0004",
-      "nom": "Monstre douillet",
-      "prix": 25.95
-  },
-  {
-      "id": "ts0005",
-      "nom": "Bleu comme une orange",
-      "prix": 25.95
-  },
-  {
-      "id": "ts0006",
-      "nom": "Camarade basque",
-      "prix": 20.5
-  },
-  {
-      "id": "ts0007",
-      "nom": "Chaton moteur",
-      "prix": 27.5
-  },
-  {
-      "id": "ts0008",
-      "nom": "Et vogue le navire",
-      "prix": 15.5
-  }
-]
+{
+    "animaux": {
+        "nomCat": {
+            "fr": "Animaux",
+            "en": "Animals"
+        },
+        "produits": [
+            {
+                "id": "ts0001",
+                "nom": {
+                    "fr": "Cute comme un poisson tropical",
+                    "en": "Cute as a Tropical Fish"
+                },
+                "dac": "",
+                "ventes": 0,
+                "prix": 25.95
+            },
+            {
+                "id": "ts0004",
+                "nom": {
+                    "fr": "Monstre douillet",
+                    "en": "Fluffy Monster"
+                },
+                "dac": "",
+                "ventes": 0,
+                "prix": 25.95
+            },
+            {
+                "id": "ts0006",
+                "nom": {
+                    "fr": "Camarade basque",
+                    "en": "Basque Comrade"
+                },
+                "dac": "",
+                "ventes": 0,
+                "prix": 20.5
+            },
+            {
+                "id": "ts0007",
+                "nom": {
+                    "fr": "Chaton moteur",
+                    "en": "Engine Kitten"
+                },
+                "dac": "",
+                "ventes": 125,
+                "prix": 27.5
+            }
+        ]
+    },
+    "inusite": {
+        "nomCat": {
+            "fr": "Inusité",
+            "en": "Unusual"
+        },
+        "produits": [
+            {
+                "id": "ts0002",
+                "nom": {
+                    "fr": "Fauteuil illégal",
+                    "en": "Illegal Armchair"
+                },
+                "dac": "",
+                "ventes": 0,
+                "prix": 20.5
+            }
+        ]
+    },
+    "sport": {
+        "nomCat": {
+            "fr": "Sport",
+            "en": "Sport"
+        },
+        "produits": [
+            {
+                "id": "ts0003",
+                "nom": {
+                    "fr": "Un dunk dans l'univers",
+                    "en": "A Dunk in the Universe"
+                },
+                "dac": "",
+                "ventes": 0,
+                "prix": 22.75
+            }
+        ]
+    },
+    "nature": {
+        "nomCat": {
+            "fr": "Nature",
+            "en": "Nature"
+        },
+        "produits": [
+            {
+                "id": "ts0005",
+                "nom": {
+                    "fr": "Bleu comme une orange",
+                    "en": "Blue Like an Orange"
+                },
+                "dac": "",
+                "ventes": 0,
+                "prix": 25.95
+            },
+            {
+                "id": "ts0008",
+                "nom": {
+                    "fr": "Et vogue le navire",
+                    "en": "And the Ship Sails On"
+                },
+                "dac": "",
+                "ventes": 0,
+                "prix": 15.5
+            }
+        ]
+    }
+}
