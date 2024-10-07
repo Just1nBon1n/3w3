@@ -1,68 +1,47 @@
 <?php
-	// Definir le tableau des langues disponible
+	/*****************************************
+		Tableau des codes de langues disponibles
+	*****************************************/
 	$languesDispo = [];
-	$dossierI18n = scandir('i18n');
-	foreach($dossierI18n as $fichier) {
-		if (pathinfo($fichier, PATHINFO_EXTENSION) == 'json') {
+	$contenuI18n = scandir('i18n');
+	for($i=0; $i<count($contenuI18n); $i++) {
+		$fichier = $contenuI18n[$i];
+		if($fichier != '.' && $fichier != '..') {
 			$languesDispo[] = substr($fichier, 0, 2);
 		}
 	}
-	
-	//print_r($languesDispo);
 
-	// Test
-	// echo time();
-	//setcookie('patati', 'patata', 365*24*3600);
-	
-	// Test : recuperer la jarre de "cookie" du browser
-	//print_r($_COOKIE);
-
-	// Accès aux paramètres d'URL (QueryString) en PHP
-	// print_r($_GET);
-	// echo $_GET['lan'];
-
-	// Choix de langue
-	// 1. Par défaut la langue est fr
+	/*****************************
+		Déterminer la langue du site
+	*****************************/
+	// 1. Langue par défaut
 	$langue = 'fr';
-
-	// 2. Langue memoriser au prealable
-	if(isset($_COOKIE['choixLangue']) && 
-		 in_array($_COOKIE['choixLangue'], $languesDispo)) {
+	
+	// 2. Langue mémorisée dans un témoin HTTP
+	if(isset($_COOKIE['choixLangue']) && in_array($_COOKIE['choixLangue'], $languesDispo)) {
 		$langue = $_COOKIE['choixLangue'];
 	}
-
-	// 3. Si l'utilisateur choisi explicitement une autre langue...
-	if(isset($_GET['lan']) && in_array($_GET['lan'], $languesDispo)) {
+	
+	// 3. Langue spécifiée explicitement
+	if(isset($_GET['lan']) &&  in_array($_GET['lan'], $languesDispo)) {
 		$langue = $_GET['lan'];
-		// Stocker la langue dans un temoin HTTP (cookie)
-		setcookie('choixLangue', $langue, time() + 30*24*3600);
+		setcookie('choixLangue', $langue, time()+30*24*3600);
 	}
 
-	// 1) Lire le fichier contenant le texte dans une chaîne de caractères.
-	$textesJSON = file_get_contents('i18n/'.$langue.'.json');
-	// Test : afficher la variable $textesJSON
-	// echo $textesJSON;
-
-	// 2) Convertir la chaîne JSON en quelque chose que PHP comprend.
+	/*********************
+	Intégration des textes
+	*********************/
+	$textesJSON = file_get_contents("i18n/".$langue.".json");
 	$textes = json_decode($textesJSON);
-	// Test : imprimer le contenu de la variable $textes
-	// echo $textes; // erreur : on ne peut imprimer autre chose qu'une chaîne de caractères
-	// print_r($textes); // C'est bon
-
-	// Raccourci pour la section commune "entete"
+	// Variables raccourcis pour les parties communes
 	$_ent = $textes->entete;
-	// Raccourci pour la section commune "pp"
 	$_pp = $textes->pp;
-
-	// Raccourci pour TOUTES les pages spécifiques
-	$_ = $textes->$page;
-
-	// Imprimer un exemple d'accès aux textes :
-	// echo $_ent->placeholderRecherche;
+	// Variable raccourci pour toutes les pages spécifiques
+	$_ = @$textes->$page;
 ?>
+
 <!DOCTYPE html>
-<!-- A completer -->
-<html lang="<?= $langue ?>" dir="">
+<html lang="fr">
 
 <head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,8 +50,8 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?= $_->metaTitre ?></title>
-	<meta name="description" content="<?= $_->metaDesc ?>">
+	<title>teeTIM // fibre naturelle ... conception artificielle</title>
+	<meta name="description" content="Page d'accueil du concepteur de vêtements 100% fait au Québec, conçus par les étudiants du TIM à l'aide de designs produits par intelligence artificielle, et fabriqués avec des fibres 100% naturelles et biologiques.">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 </head>
@@ -81,32 +60,28 @@
 	<div class="conteneur">
 		<header>
 			<nav class="barre-haut">
-
-				<!-- 
-				Boucle pour generer une balise A pour 
-				chaque fichier de langue dans le dossier i18n
-				-->
-
-				<?php foreach($languesDispo as $codeLangue) : ?>
-					<a 
-						class="<?php if($langue==$codeLangue) {echo 'actif';} 
-						?>" href="?lan=<?= $codeLangue ?>"
-					><?= $codeLangue ?></a>
-				<?php endforeach ?>
+				<?php foreach($languesDispo as $codeLangue): ?>
+				<a 
+					class="<?= ($langue==$codeLangue) ? 'actif' : '' ?>" 
+					href="?lan=<?= $codeLangue ?>"
+				>
+					<?= $codeLangue ?>
+				</a>
+				<?php endforeach; ?>
 				
 			</nav>
 			<nav class="barre-logo">
 				<label for="cc-btn-responsive" class="material-icons burger">menu</label>
-				<a class="logo" href="index.php"><img src="images/logo.png" alt="<?= $_ent->altLogo ?>"></a>
+				<a class="logo" href="index.php"><img src="images/logo.png" alt="<?php echo $_ent->altLogo; ?>"></a>
 				<a class="material-icons panier" href="panier.php">shopping_cart</a>
-				<input class="recherche" type="search" name="motscles" placeholder="<?= $_ent->placeholderRecherche ?>">
+				<input class="recherche" type="search" name="motscles" placeholder="<?php echo $_ent->placeholderRecherche; ?>">
 			</nav>
 			<input type="checkbox" id="cc-btn-responsive">
 			<nav class="principale">
 				<label for="cc-btn-responsive" class="menu-controle material-icons">close</label>
-				<a href="teeshirts.php" class="<?php if($page=='teeshirts') {echo 'actif';} ?>"><?= $_ent->menuTeeshirts ?></a>
-				<a href="casquettes.php"><?= $_ent->menuCasquettes ?></a>
-				<a href="hoodies.php"><?= $_ent->menuHoodies ?></a>
+				<a href="teeshirts.php" class="<?= $page=='teeshirts' ? 'actif' : '' ?>"><?= $_ent->menuTeeshirts; ?></a>
+				<a href="casquettes.php" class="<?= $page=='casquettes' ? 'actif' : '' ?>"><?= $_ent->menuCasquettes; ?></a>
+				<a href="hoodies.php" class="<?= $page=='hoodies' ? 'actif' : '' ?>"><?= $_ent->menuHoodies ?></a>
 				<span class="separateur"></span>
 				<a href="aide.php"><?= $_ent->menuAide ?></a>
 				<a href="apropos.php"><?= $_ent->menuNous ?></a>
