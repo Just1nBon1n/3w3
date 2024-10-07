@@ -21,7 +21,7 @@ foreach($catalogue as $codeCat => $detailCat) {
 	// Remplir le tableau $categories
 	// On veut un tableau associatif avec le code de catégorie dans l'étiquette
 	// et son nom dans la langue courante dans la valeur.
-	$categories[$codeCat] = $detailCat->nomCat->$langue;
+	$categories[$codeCat] = $detailCat->nomCat->$langue;		//PROBLEME TP ICI
 
 	// Remplir le tableau $produits
 	// On veut un tableau contenant TOUS les produits quelle que soit la catégorie
@@ -34,25 +34,58 @@ shuffle($produits);
 // print_r($categories);
 // print_r($produits);
 
+// Fonction de comparaison pour les différents tris
+function comparerPrixAsc($prd1, $prd2) {
+	if ($prd1->prix == $prd2->prix) {
+		return -1;
+	}
+	else {
+		return 1;
+	}
+}
+
+$tri = "";
+if(isset ($_GET["tri"])) {
+	$tri = $_GET["tri"];
+
+	switch($tri) {
+		case "prix-asc":
+			//Code pour ce cas
+			usort($produits, "comparerPrixAsc");
+
+			break;
+		case "prix-desc":
+			//Code pour ce cas
+			break;
+		case "nom-asc":
+			//Code pour ce cas
+			break;
+		case "nom-desc":
+			//Code pour ce cas
+			break;
+	}
+}
+
 ?>
 <main class="page-produits page-teeshirts">
 	<article class="amorce">
 		<h1><?= $_->titrePage ?></h1>
 		<!-- Barre de tri/filtre -->
-		<section class="controle">
+		<form class="controle">
 			<div class="filtre">
 				<label for="filtre">Filtrer par : </label>
 				<select name="filtre" id="filtre">
 					<option value="tous">Tous les produits</option>
-					<option value="animaux">Animaux</option>
-					<option value="nature">Nature</option>
-					<option value="inusite">Inusité</option>
-					<option value="sport">Sport</option>
+					
+					<?php foreach($categories as $codeCat => $nomCat) : ?>
+						<option value="<?= $codeCat ?>"><?= $nomCat ?></option>
+					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="tri">
 				<label for="tri">Trier par : </label>
 				<select name="tri" id="tri">
+					<option value="aleatoire">Aléatoire</option>
 					<option value="prix-asc">Prix / ascendant</option>
 					<option value="prix-desc">Prix / descendant</option>
 					<option value="nom-asc">Alpha / ascendant</option>
@@ -61,7 +94,7 @@ shuffle($produits);
 					<option value="ventes-desc">Meilleur vendeur</option>
 				</select>
 			</div>
-		</section>
+		</form>
 	</article>
 
 	<article class="principal">
