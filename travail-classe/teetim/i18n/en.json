@@ -31,6 +31,10 @@
     "amorceSousTitre2": "with a little help from DALL-E 😉",
     "para1": "Today, the T-shirt is a staple in everyone's wardrobe. And in an era where environmental issues are more pressing than ever, we prefer T-shirts made in Quebec to reduce environmental impact and highlight local craftsmanship.",
     "para2": "V-neck, round neck, loose or fitted, short sleeves or long sleeves for the chilly, plain or patterned to style an outfit... The T-shirt is available in a variety of colors, styles, and patterns."
+  }, 
+  "catalogue": {
+    "filtreEtiquette": "Filter By: ",
+    "filtreTous": "All Products"
   },
   "teeshirts": {
     "metaTitre": "teeTIM // Tees",
