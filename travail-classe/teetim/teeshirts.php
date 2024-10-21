@@ -14,7 +14,7 @@ $catalogue = json_decode(file_get_contents("data/teeshirts.json"));
 
 $categories = [];
 $produits = [];
-
+ 
 foreach($catalogue as $codeCat => $detailCat) {
 	$categories[$codeCat] = $detailCat->nomCat->$langue;
 	$produits = array_merge($produits, $detailCat->produits);

@@ -14,9 +14,6 @@ if(selectTri) {
 }
 
 function gererRequeteTriSynchrone(evt) {
-  console.log("La valeur du critère de tri a changé : ", evt.target.value);
-  console.log("Le FORM qui contient le SELECT : ", evt.target.closest("form"));
-  console.log("Une autre façon d'y accéder (raccourci) : ", evt.target.form);
   // Saisir le formulaire associé avec le SELECT ...
   let leFrm = evt.target.form;
 
@@ -29,29 +26,32 @@ async function gererRequeteTriAsynchrone(evt) {
   // C'est à dire : l'API Fetch
   let reponseTri = await fetch("async/teeshirts.async.php?tri=" + evt.target.value);
   let produitsTries = await reponseTri.json();
-
+  
   gererAffichageProduits(produitsTries);
 }
 
 
 function gererAffichageProduits(produits) {
-  console.log("Le tableau produits trié selon la requête : ", produits);
+  //Langue du site
+  let lan = document.querySelector("html").lang;
+
+  // Conteneur des produits
   let conteneur = document.querySelector("article.principal");
   conteneur.innerHTML = "";
+
   // Et réinsérer dans le conteneur un bloc HTML pour chaque produit du tableau "produits"
   let gabaritProduit = document.querySelector("#gabarit-produit").content;
   let divProduit;
   
   for(let prd of produits) {
     divProduit = gabaritProduit.cloneNode(true); // deep clone : clone l'élément et TOUS ses descendants
-    divProduit.querySelector("span.nom").innerHTML = prd.nom.en;
-
+    divProduit.querySelector("span.nom").innerHTML = prd.nom[lan];
+    divProduit.querySelector("span.prix").innerHTML = prd.prix + " $";
+    divProduit.querySelector("img").alt = prd.nom[lan];
+    divProduit.querySelector("img").src = "images/produits/teeshirts/" + prd.id + '.webp';
+    
     // Insère divProduit dans le conteneur
     conteneur.append(divProduit);
   }
-
-  console.log("Langue du site : ", document.querySelector("html").lang);
-  console.log("Cookies : ", document.cookie);
-  
 }
 

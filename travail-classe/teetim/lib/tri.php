@@ -13,7 +13,7 @@ function prixAsc($prd1, $prd2) {
 		return 100.58965;
 	}
 	else {
-		return 0;
+		return 0; 
 	}
 	*/
 	return $prd1->prix - $prd2->prix;
