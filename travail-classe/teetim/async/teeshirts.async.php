@@ -28,7 +28,7 @@ if(isset($_GET["tri"]) && $_GET["tri"] != "aleatoire") {
 	usort($produits, $tri);
 }
 /* FIN : tri */
-
+ 
 
   // Générer la réponse HTTP en JSON
   echo json_encode($produits);

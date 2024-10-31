@@ -1,0 +1,31 @@
+Analyse des besoins en données du site TeeTIM
+---------------------------------------------
+
+A) Catalogue
+
+  -------------------
+  Liste des "ENTITÉS"
+  -------------------
+
+  1) Catégories
+    id : code alphanumérique ? ou numéro ?
+    nom : chaîne de caractères (i18n), longueur variable (max : 50) 
+
+  2) Produits
+    id : code alphanumérique ? ou numéro ?
+    nom : chaîne de caractères (i18n), longueur variable (max : 250)
+    image : fichier binaire (jpg,  png, webp, etc.)
+    prix : décimal, maximum 5 chiffres dont 2 après la virgule
+
+B) Panier d'achats
+  ...
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+NE SERA PAS FAIT DANS LE COUR
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+C) Clients
+  ...
+
+D) Commandes
+  ...
