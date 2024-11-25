@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: http://localhost:81/web/sqldesigner/wwwsqldesigner-master/ -->
+<!-- Active URL: http://localhost:81/web/sqldesigner/ -->
 <sql>
 <datatypes db="mysql">
 	<group label="Numeric" color="rgb(238,238,170)">
@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="135" y="112" name="categorie">
+</datatypes><table x="121" y="112" name="categorie">
 <row name="id" null="0" autoincrement="1">
 <datatype>TINYINT</datatype>
 </row>
@@ -48,7 +48,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="511.75701904296875" y="113.44015502929688" name="produit">
+<table x="524" y="110" name="produit">
 <row name="id" null="0" autoincrement="1">
 <datatype>SMALLINT</datatype>
 </row>
@@ -63,10 +63,11 @@
 <default>0</default></row>
 <row name="image" null="1" autoincrement="0">
 <datatype>BLOB</datatype>
-</row>
+<default>NULL</default></row>
 <row name="id_categorie" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="categorie" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
