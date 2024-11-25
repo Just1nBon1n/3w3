@@ -1,96 +1,91 @@
 <?php
-// Définir la variable $page pour indiquer la page affichée.
-$page = 'teeshirts';
-
-// Inclure la partie de haut de la page.
+$page = "teeshirts";
 include('parties-communes/entete.php');
 
-// Inclure les fonctions de comparaison utilisées dans le tri
-include("lib/tri.php");
+/*
+	Intégration des produits "teeshirts"
+*/
 
-/* DÉBUT : catalogue */
-// Intégrer les produits
-$catalogue = json_decode(file_get_contents("data/teeshirts.json"));
-
-$categories = [];
-$produits = [];
- 
-foreach($catalogue as $codeCat => $detailCat) {
-	$categories[$codeCat] = $detailCat->nomCat->$langue;
-	$produits = array_merge($produits, $detailCat->produits);
-}
-/* FIN : catalogue */
-
-/* DÉBUT : Fonctionnalité de tri des produits */
-// Mélanger le tableau des produits (critère de tri par défaut !!!)
-shuffle($produits);
- 
-$tri = "";
-// Remarquez : on exclut le cas ou le paramètre "tri" a la valeur "aleatoire"
-if(isset($_GET["tri"]) && $_GET["tri"] != "aleatoire") {
-	// Trier le tableau $produits
-	$tri = $_GET["tri"];
-
-	// Avertissement : ça suppose que la valeur de l'option du select de tri correspond
-	// au nom de la fonction de comparaison.
-	usort($produits, $tri);
-}
-/* FIN : tri */
 ?>
 <main class="page-produits page-teeshirts">
 	<article class="amorce">
-		<h1><?= $_->titrePage ?></h1>
-		<!-- Barre de tri/filtre -->
+		<h1><?= $_->titrePage; ?></h1>
 		<form class="controle">
 			<div class="filtre">
-				<label for="filtre"><?= $textes->catalogue->filtreEtiquette ?></label>
+				<label for="filtre"><?= $textes->catalogue->filtreEtiquette; ?></label>
 				<select name="filtre" id="filtre">
-					<option value="tous"><?= $textes->catalogue->filtreTous ?></option>
-					
-					<?php foreach($categories as $codeCat => $nomCat) :  ?>
-						<option value="<?= $codeCat ?>"><?= $nomCat ?></option>
+					<option value="tous">
+						<?= $textes->catalogue->filtreTous." (".$compteProduitsTotal.")"; ?>
+					</option>
+
+					<?php foreach ($categories as $codeCat => $nomCat) : ?>
+						<!-- 
+							TP/Volet 2 : Point 5 : Catégorie sélectionnée 
+						-->
+						<option value="<?= $codeCat; ?>" <?= ($codeCat==$filtre) ? "selected" : ""; ?>>
+							<?= $nomCat; ?>
+						</option>
 					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="tri">
-				<label for="tri">Trier par : </label>
+				<!-- TP/Volet 2 : Point 1 : Étiquettes de tri externalisées -->
+				<label for="tri"><?= $textes->catalogue->triEtiquette; ?></label>
 				<select name="tri" id="tri">
-					<option value="aleatoire">* Aléatoire</option>
-
-					<option <?= ($tri == "prixAsc") ? "selected" : "" ?> value="prixAsc">* Prix / ascendant</option>
-					<option <?= ($tri == "prixDesc") ? "selected" : "" ?> value="prixDesc">* Prix / descendant</option>
-					<option <?= ($tri == "nomAsc") ? "selected" : "" ?> value="nomAsc">Alpha / ascendant</option>
-					<option <?= ($tri == "nomDesc") ? "selected" : "" ?> value="nomDesc">Alpha / descendant</option>
-					<option <?= ($tri == "dacDesc") ? "selected" : "" ?> value="dacDesc">Nouveauté</option>
-					<option <?= ($tri == "ventesDesc") ? "selected" : "" ?> value="ventesDesc">* Meilleur vendeur</option>
+					<option value="aleatoire">* <?= $textes->catalogue->triAlea; ?></option>
+					<option <?= ($tri == "prixAsc") ? "selected" : ""; ?> value="prixAsc">
+						* <?= $textes->catalogue->triPrixAsc; ?>
+					</option>
+					<option <?= ($tri == "prixDesc") ? "selected" : ""; ?> value="prixDesc">
+						* <?= $textes->catalogue->triPrixDesc; ?>
+					</option>
+					<option <?= ($tri == "nomAsc") ? "selected" : ""; ?> value="nomAsc">
+						<?= $textes->catalogue->triNomAsc; ?>
+					</option>
+					<option <?= ($tri == "nomDesc") ? "selected" : ""; ?> value="nomDesc">
+						<?= $textes->catalogue->triNomDesc; ?>
+					</option>
+					<option <?= ($tri == "dacDesc") ? "selected" : ""; ?> value="dacDesc">
+						<?= $textes->catalogue->triDateAjoutDesc; ?>
+					</option>
+					<option <?= ($tri == "ventesDesc") ? "selected" : ""; ?> value="ventesDesc">
+						* <?= $textes->catalogue->triVentesDesc; ?>
+					</option>
 				</select>
 			</div>
 		</form>
 	</article>
-
 	<article class="principal">
-
-		<?php foreach ($produits as $prd) : ?>
+		<?php foreach($produits as $prod) : ?>
 			<div class="produit">
+				<!-- 
+					TP/Volet 2 : Point 4 : Badge des ventes 
+				-->
+				<?php if($prod->ventes > 0) : ?>
+					<div class="ventes"><?= $prod->ventes; ?></div>
+				<?php endif; ?>
+				<!-- 
+					TP/Volet 2 : Point 2 : Si le catalogue n'est pas traduit dans la langue 
+					courante, utiliser le français 
+				-->
 				<span class="image">
-					<img src="images/produits/teeshirts/<?= $prd->id ?>.webp" alt="<?= $prd->nom->$langue ?>">
+					<img src="images/produits/teeshirts/<?= $prod->id; ?>.webp" alt="<?= $prod->nom->$langue ?? $prod->nom->fr; ?>">
 				</span>
-				<span class="nom"><?= $prd->nom->$langue ?></span>
-				<span class="prix"><?= number_format($prd->prix, 2, ','); ?> $</span>
+				<span class="nom"><?= $prod->nom->$langue ?? $prod->nom->fr; ?></span>
+				<span class="prix"><?= number_format($prod->prix, 2); ?> $</span>
 			</div>
 		<?php endforeach; ?>
-
 	</article>
-	
-	<template id="gabarit-produit">
-		<div class="produit">
-			<span class="image">
-				<img src="images/produits/teeshirts/ID.webp" alt="NOM">
-			</span>
-			<span class="nom">NOM</span>
-			<span class="prix">PRIX $</span>
-		</div>
-	</template>
-
 </main>
+<!-- Le gabarit utilisé pour implémenter l'affichage avec la méthode Ajax (JS asynchrone) -->
+<template id="gabarit-produit">
+	<div class="produit">
+		<div class="ventes"></div>
+		<span class="image">
+			<img src="images/produits/teeshirts/" alt="">
+		</span>
+		<span class="nom"></span>
+		<span class="prix"></span>
+	</div>
+</template>
 <?php include('parties-communes/pied2page.php'); ?>

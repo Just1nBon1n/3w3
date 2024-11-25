@@ -1,0 +1,115 @@
+{
+  "entete": {
+      "altLogo": "Hemsida",
+      "placeholderRecherche": "Sök Nyckelord",
+      "menuTeeshirts": "T-shirts",
+      "menuCasquettes": "Kepsar",
+      "menuHoodies": "Huvtröjor",
+      "menuAide": "Hjälp",
+      "menuAPropos": "Om Oss"
+  },
+  "pp": {
+      "achatsTitre": "Mina Beställningar",
+      "navAchatsFaq": "Vanliga Frågor",
+      "navAchatsLivraison": "Paketleverans",
+      "navAchatsConditions": "Försäljningsvillkor",
+      "navAchatsConfidentialite": "Integritetspolicy",
+      "aProposTitre": "Om teeTIM",
+      "aProposCompagnie": "Vårt Företag",
+      "aProposEquipe": "Team",
+      "aProposEmplois": "Jobb",
+      "joindreTitre": "Kontakta Oss",
+      "joindreTelEtiquette": "Avgiftsfritt: ",
+      "joindreCourrielEtiquette": "E-post: ",
+      "droits": "teeTIM - Alla Rättigheter Förbehållna"
+  },
+  "index": {
+      "metaTitre": "naturliga fibrer ... artificiell design",
+      "metaDesc": "Hemsida för designern av kläder 100% tillverkade i Quebec, designade av TIM-studenter med hjälp av mönster producerade av artificiell intelligens, och tillverkade med 100% naturliga och ekologiska fibrer.",
+      "amorceTitre": "T-shirts, huvtröjor och kepsar tillverkade 💯 i Québec",
+      "amorceSousTitre": "Designade med ❤️ på TIM Maisonneuve",
+      "amorceSousTitre2": "med lite hjälp från DALL-E 😉",
+      "para1": "Idag är t-shirten ett oumbärligt plagg i allas garderob. Och i en tid då miljöfrågan är mer aktuell än någonsin, föredrar vi t-shirts tillverkade i Quebec för att minska miljöpåverkan och lyfta fram lokalt hantverk.",
+      "para2": "V-formad t-shirt, rund hals, lös eller figursydd, kortärmad eller långärmad för de som är mer frusna, enfärgad eller mönstrad för att stilisera en outfit... T-shirten finns i en mängd olika färger, stilar och mönster."
+  },
+  "catalogue": {
+      "filtreEtiquette": "Filtrera Efter: ",
+      "filtreTous": "Alla Produkter",
+      "triEtiquette": "Sortera Efter: ",
+      "triAlea": "Slumpmässig",
+      "triPrixAsc": "Pris/stigande",
+      "triPrixDesc": "Pris/fallande",
+      "triNomAsc": "Namn/stigande",
+      "triNomDesc": "Namn/fallande",
+      "triDateAjoutDesc": "Ny",
+      "triVentesDesc": "Bästsäljare"
+  },
+  "teeshirts": {
+      "metaTitre": "100% ekologiska bomullst-shirts",
+      "metaDesc": "Våra t-shirts är tillverkade med de bästa materialen, tillverkade i Quebec, designade av...",
+      "titrePage": "T-shirts"
+  },
+  "casquettes": {
+      "metaTitre": "stiliga och bekväma kepsar",
+      "metaDesc": "[VIKTIGT att tydligt definiera beskrivningen av kepssidan innan webbplatsen lanseras!!!]",
+      "titrePage": "Kepsar"
+  },
+  "hoodies": {
+      "metaTitre": "huvtröjor",
+      "metaDesc": "[VIKTIGT att tydligt definiera beskrivningen av huvtröjsidan innan webbplatsen lanseras!!!]",
+      "titrePage": "Huvtröjor & Sweatshirts"
+  },
+  "panier": {
+      "metaTitre": "kundvagn",
+      "metaDesc": "",
+      "titrePage": "Din Kundvagn",
+      "nbArticles": "Totalt antal artiklar: ",
+      "sousTotal": "Delsumma: ",
+      "btnCommander": "Slutför Beställning"
+  },
+  "aide": {
+      "metaTitre": "vi lyssnar",
+      "metaDesc": "[VIKTIGT att komplettera]",
+      "titrePage": "Hjälp"
+  },
+  "apropos": {
+      "metaTitre": "om oss",
+      "metaDesc": "[VIKTIGT att komplettera]",
+      "titrePage": "Vilka Är Vi?"
+  },
+  "faq": {
+      "metaTitre": "du har frågor, vi har svar",
+      "metaDesc": "[VIKTIGT att komplettera]",
+      "titrePage": "Vanliga Frågor"
+  },
+  "livraison": {
+      "metaTitre": "frakt och returer",
+      "metaDesc": "[VIKTIGT att komplettera]",
+      "titrePage": "Frakt & Returer"
+  },
+  "conditions": {
+      "metaTitre": "försäljningsvillkor",
+      "metaDesc": "[VIKTIGT att komplettera]",
+      "titrePage": "Försäljningsvillkor"
+  },
+  "confidentialite": {
+      "metaTitre": "integritet",
+      "metaDesc": "[VIKTIGT att komplettera]",
+      "titrePage": "Vår Integritetspolicy"
+  },
+  "compagnie": {
+      "metaTitre": "företag",
+      "metaDesc": "[VIKTIGT att komplettera]",
+      "titrePage": "Vårt Företag"
+  },
+  "equipe": {
+      "metaTitre": "team",
+      "metaDesc": "[VIKTIGT att komplettera]",
+      "titrePage": "Teamet"
+  },
+  "emplois": {
+      "metaTitre": "jobb",
+      "metaDesc": "[VIKTIGT att komplettera]",
+      "titrePage": "Lediga Jobb"
+  }
+}

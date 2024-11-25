@@ -1,0 +1,115 @@
+{
+  "entete": {
+    "altLogo": "Pagina iniziale",
+    "placeholderRecherche": "Parole chiave di ricerca",
+    "menuTeeshirts": "Magliette",
+    "menuCasquettes": "Cappelli",
+    "menuHoodies": "Felpe con cappuccio",
+    "menuAide": "Aiuto",
+    "menuAPropos": "Chi siamo"
+  },
+  "pp": {
+    "achatsTitre": "I miei ordini",
+    "navAchatsFaq": "Domande frequenti",
+    "navAchatsLivraison": "Consegna del pacco",
+    "navAchatsConditions": "Condizioni di vendita",
+    "navAchatsConfidentialite": "Informativa sulla privacy",
+    "aProposTitre": "Informazioni su teeTIM",
+    "aProposCompagnie": "La nostra Azienda",
+    "aProposEquipe": "Squadra",
+    "aProposEmplois": "Lavori",
+    "joindreTitre": "Contattaci",
+    "joindreTelEtiquette": "Numero verde: ",
+    "joindreCourrielEtiquette": "E-mail: ",
+    "droits": "teeTIM - Tutti i diritti riservati"
+  },
+  "index": {
+    "metaTitre": "fibre naturali...design artificiale",
+    "metaDesc": "Home page del designer di capi di abbigliamento 100% made in Quebec, disegnati dagli studenti TIM utilizzando disegni prodotti dall'intelligenza artificiale, e realizzati con fibre 100% naturali e organiche.",
+    "amorceTitre": "T-shirt, felpe e berretti realizzati in 💯 Québec",
+    "amorceSousTitre": "Disegnato con ❤️ presso TIM Maisonneuve",
+    "amorceSousTitre2": "con un piccolo aiuto da DALL-E 😉",
+    "para1": "Oggi la maglietta è un capo d'abbigliamento essenziale nel guardaroba di tutti. E in un'area in cui la questione ambientale si pone più che mai, preferiamo le magliette prodotte in Quebec per ridurre l'impatto ambientale e evidenziare l'artigianato locale.",
+    "para2": "T-shirt a V, girocollo, ampia o aderente, a maniche corte o lunghe per i più freddolosi, a tinta unita o fantasia per stilizzare un outfit... La t-shirt è disponibile in una varietà di colori, stili e modelli."
+  },
+  "catalogue": {
+    "filtreEtiquette": "Filtra per: ",
+    "filtreTous": "Tutti i prodotti",
+    "triEtiquette": "Ordina per: ",
+    "triAlea": "Casuale",
+    "triPrixAsc": "Prezzo/crescente",
+    "triPrixDesc": "Prezzo/discendente",
+    "triNomAsc": "Nome/ascendente",
+    "triNomDesc": "Nome/discendente",
+    "triDateAjoutDesc": "Nuovo",
+    "triVentesDesc": "Il più venduto"
+  },
+  "teeshirts": {
+    "metaTitre": "T-shirt in cotone organico al 100%",
+    "metaDesc": "Le nostre magliette sono realizzate con i migliori materiali, realizzate in Quebec, disegnate da...",
+    "titrePage": "Magliette"
+  },
+  "casquettes": {
+    "metaTitre": "berretti eleganti e comodi",
+    "metaDesc": "[IMPORTANTE definire chiaramente la descrizione della pagina caps prima di pubblicare il sito!!!]",
+    "titrePage": "Maiuscole"
+  },
+  "hoodies": {
+    "metaTitre": "felpe con cappuccio",
+    "metaDesc": "[IMPORTANTE definire chiaramente la descrizione della pagina delle felpe prima di pubblicare il sito!!!]",
+    "titrePage": "Felpe e felpe"
+  },
+  "panier": {
+    "metaTitre": "carrello",
+    "metaDesc": "",
+    "titrePage": "Il tuo carrello",
+    "nbArticles": "Articoli totali: ",
+    "sousTotal": "Subtotale: ",
+    "btnCommander": "Completa l'ordine"
+  },
+  "aide": {
+    "metaTitre": "stiamo ascoltando",
+    "metaDesc": "[IMPORTANTE da completare]",
+    "titrePage": "Aiuto"
+  },
+  "apropos": {
+    "metaTitre": "chi siamo",
+    "metaDesc": "[IMPORTANTE da completare]",
+    "titrePage": "Chi siamo noi?"
+  },
+  "faq": {
+    "metaTitre": "tu hai domande, noi abbiamo risposte",
+    "metaDesc": "[IMPORTANTE da completare]",
+    "titrePage": "Domande frequenti"
+  },
+  "livraison": {
+    "metaTitre": "spedizioni e resi",
+    "metaDesc": "[IMPORTANTE da completare]",
+    "titrePage": "Spedizione e resi"
+  },
+  "conditions": {
+    "metaTitre": "condizioni di vendita",
+    "metaDesc": "[IMPORTANTE da completare]",
+    "titrePage": "Condizioni di vendita"
+  },
+  "confidentialite": {
+    "metaTitre": "privacy",
+    "metaDesc": "[IMPORTANTE da completare]",
+    "titrePage": "La nostra Informativa sulla Privacy"
+  },
+  "compagnie": {
+    "metaTitre": "azienda",
+    "metaDesc": "[IMPORTANTE da completare]",
+    "titrePage": "La nostra azienda"
+  },
+  "equipe": {
+    "metaTitre": "squadra",
+    "metaDesc": "[IMPORTANTE da completare]",
+    "titrePage": "La squadra"
+  },
+  "emplois": {
+    "metaTitre": "lavori",
+    "metaDesc": "[IMPORTANTE da completare]",
+    "titrePage": "Lavori disponibili"
+  }
+}
