@@ -91,8 +91,69 @@ nav.barre-haut a.actif {
 	font-size: 1rem;
 }
 
-.barre-logo .panier {
+.barre-logo .panier-icone {
+	position: relative;
+}
+
+.barre-logo .panier-icone label {
 	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.barre-logo .panier-icone input {
+	display: none;
+}
+
+.barre-logo .panier-icone .sommaire-panier {
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 90%;
+	width: 60vw;
+	min-width: 300px;
+	max-width: 400px;
+	padding: 0.5rem 0.75rem;
+	font-size: 0.9rem;
+	border-top: 0.4rem solid var(--clr-fond-panier);
+	background-color: var(--clr-fond-claire);
+	flex-direction: column;
+	/* 1 de moins que le menu en mobile et 1 de plus que le menu sur écran plus large */
+	z-index: 100;
+	box-shadow: var(--boxshadow-principal);
+}
+
+#panier-cc:checked + .sommaire-panier {
+	display: flex;
+}
+
+.barre-logo .panier-icone .sommaire-panier > div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.barre-logo .panier-icone .sommaire-panier .nb-articles {
+	font-weight: bold;
+}
+
+.barre-logo .panier-icone .sommaire-panier .sous-titre {
+	font-size: 0.8rem;
+}
+
+.barre-logo .panier-icone .sommaire-panier .sous-total {
+	font-size: 1rem;
+	font-weight: bold;
+	color: var(--clr-fond-panier);
+}
+
+.barre-logo .panier-icone .sommaire-panier .btn-afficher-panier {
+	font-size: 0.9rem;
+	background-color: var(--clr-fond-panier);
+	color: var(--clr-texte-secondaire);
+	padding: 0.25rem;
+	border-radius: 3px;
+	justify-content: center;
+	margin: 0.5rem 0;
 }
 
 .barre-logo .burger {
@@ -212,7 +273,6 @@ main.page-produits .principal {
 	gap: 1rem;
 }
 
-/* TP/Volet 2 : Point 4 : position relative de la "boite" du produit */
 main.page-produits .principal .produit {
 	position: relative;
 	width: 33%;
@@ -223,8 +283,13 @@ main.page-produits .principal .produit {
 	cursor: pointer;
 }
 
-/* TP/Volet 2 : Point 4 : mise en forme de la pastille (ou badge) contenant les 
-ventes */
+main.page-produits .principal .produit .prd-info {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: space-between;
+}
+
 main.page-produits .principal .produit .ventes {
 	position: absolute;
 	top: -0.5rem;
@@ -254,7 +319,13 @@ main.page-produits .principal .produit .prix {
 	font-weight: bold;
 }
 
-/* TP/Volet 2 : Point 8 : mise en forme du panier */
+/* Bouton Ajout au panier */
+main.page-produits .principal .produit .btn-ajouter {
+	margin: 1rem;
+	padding: 0.5rem;
+	cursor: pointer;
+}
+
 /* Panier d'achats */
 main.page-panier .amorce {
 	text-align: center;
@@ -266,84 +337,70 @@ main.page-panier .principal {
 
 main.page-panier .principal .liste-panier {
 	max-width: 800px;
-	width: 90vw;
+	width: 80vw;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 }
 
-main.page-panier .principal .liste-panier .article {
+main.page-panier .principal .liste-panier article.item-panier {
 	display: flex;
 	flex-direction: column;
-	/* width: 100%; */
 	margin: 0.5rem 0;
+	padding: 1rem;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-/* Bordure entre les article dans le panier */
-.article+.article {
-	border-top: 3px dotted var(--clr-fond-menu-responsive);
-	padding-top: 0.5rem;
-}
-
-main.page-panier .principal .liste-panier .article .groupe-ligne {
+main.page-panier .principal .liste-panier article.item-panier > div {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 	width: 100%;
 }
 
-main.page-panier .principal .liste-panier .article .groupe-ligne>span {
-	font-size: 0.8rem;
-	padding: 0.15rem;
+main.page-panier .principal .liste-panier article.item-panier button {
+	/* border-radius: 1rem; */
+	cursor: pointer;
+	border: none;
+	background-color: white;
+	font-size: 1.5rem;
 }
 
-main.page-panier .principal .liste-panier .image {
-	max-width: 50px;
+main.page-panier .principal .liste-panier article.item-panier div.qte-prix {
+	width: 70%;
+	align-self: flex-end;
+	font-size: 0.85rem;
 }
 
-main.page-panier .principal .liste-panier .image img {
+main.page-panier .principal .liste-panier article.item-panier div.qte-prix > div {
+	display: flex;
+	flex-direction: column;
+}
+
+main.page-panier .principal .liste-panier article.item-panier div.qte-prix input {
+	width: 50px;
+	padding: 0.25rem;
+}
+
+main.page-panier .principal .liste-panier article.item-panier div.qte-prix div.quantite .valeur-qte > * {
+	vertical-align: middle;
+}
+
+main.page-panier .principal .liste-panier article.item-panier .image {
+	max-width: 80px;
+}
+
+main.page-panier .principal .liste-panier article.item-panier .image img {
 	width: 100%;
 }
 
-main.page-panier .principal .liste-panier .nom {
+main.page-panier .principal .liste-panier article.item-panier .nom {
 	text-align: left;
-	width: 60%;
 	flex: 1;
+	margin-left: 1rem;
 }
 
-main.page-panier .principal .liste-panier .taille {
-	text-align: center;
-	width: 50px;
-}
-
-main.page-panier .principal .liste-panier .couleur {
-	text-align: left;
-	width: 25px;
-	height: 25px;
-	min-height: 1rem;
-	border-radius: 5px;
-}
-
-main.page-panier .principal .liste-panier .couleur.vert {
-	background-color: #00a87b;
-}
-
-main.page-panier .principal .liste-panier .couleur.rose {
-	background-color: #ff7eb9;
-}
-
-main.page-panier .principal .liste-panier .prix {
-	text-align: right;
-	width: 100px;
-}
-
-main.page-panier .principal .liste-panier .quantite {
-	width: 50px;
-	text-align: right;
-}
-
-main.page-panier .principal .liste-panier .quantite input {
-	width: 40px;
+main.page-panier .principal .liste-panier article.item-panier .montant {
 	text-align: right;
 }
 
@@ -356,7 +413,7 @@ main.page-panier .principal .liste-panier span.btn-supprimer {
 
 main.page-panier .principal .sommaire-panier {
 	max-width: 800px;
-	width: 90vw;
+	width: 80vw;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -435,12 +492,12 @@ footer .da {
 		width: clamp(250px, 35vw, 350px);
 	}
 
-	.barre-logo .recherche {
-		min-width: 50%;
+	.barre-logo .panier-icone {
+		order: 1;
 	}
 
-	.barre-logo .panier {
-		order: 1;
+	.barre-logo .panier-icone .sommaire-panier {
+		width: 25vw;
 	}
 
 	.barre-logo .burger {
@@ -497,13 +554,7 @@ footer .da {
 		margin: 0 1rem;
 	}
 
-	/* TP/Volet 2 : Point 8 : pour plus grand écran */
 	/* Panier */
-	main.page-panier .principal .liste-panier .article {
-		flex-direction: row;
-		width: 100%;
-	}
-
 	main.page-panier .principal .sommaire-panier {
 		flex-direction: row;
 		align-items: center;

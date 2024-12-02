@@ -2,49 +2,53 @@
 $page = "panier";
 include('parties-communes/entete.php');
 ?>
-<!-- 
-	TP/Volet 2 : Point 8 : Page panier
--->
 <main class="page-panier">
   <article class="amorce">
     <h1><?= $_->titrePage; ?></h1>
   </article>
   <article class="principal">
+    <!-- 
+      [TPv3] Point 6 : Message lorsque le panier est vide.
+    -->
     <div class="liste-panier">
-      <div class="article">
-        <span class="groupe-ligne">
-          <span class="image">
-            <img src="images/produits/teeshirts/ts0004.webp" alt="">
-          </span>
-          <span class="nom">Monstre douillet</span>
-        </span>
-        <span class="groupe-ligne">
-          <span class="couleur vert"></span>
-          <span class="taille">M</span>
-          <span class="quantite"><input type="number" name="quantite" value="5" min="1" max="9"></span>
-          <span class="prix">29.50 $</span>
-          <span class="btn-supprimer material-icons">delete</span>
-        </span>
-      </div>
-      <div class="article">
-        <span class="groupe-ligne">
-          <span class="image">
-            <img src="images/produits/teeshirts/ts0005.webp" alt="">
-          </span>
-          <span class="nom">Bleu comme une orange</span>
-        </span>
-        <span class="groupe-ligne">
-          <span class="couleur rose"></span>
-          <span class="taille">XS</span>
-          <span class="quantite"><input type="number" name="quantite" value="2" min="1" max="9"></span>
-          <span class="prix">19.99 $</span>
-          <span class="btn-supprimer material-icons">delete</span>
-        </span>
-      </div>
+      <!-- 
+        [TPv3] Point 3 : utilisez la variable $detailPanier pour générer 
+        dynamiquement le contenu du panier.
+      -->
+      <!-- Gabarit d'un article dans le panier -->
+      <article class="item-panier" data-aid="34">
+        <div class="image-nom">
+          <div class="image">
+            <img src="images/produits/teeshirts/ts0005.webp" alt="Nom du produit ici">
+          </div>
+          <div class="nom">Produit fictif, quantité et prix aussi !</div>
+          <button class="btn-supprimer material-icons" title="Cliquez pour supprimer cet article du panier">delete</button>
+        </div>
+        <div class="qte-prix">
+          <div class="prix">
+            <span class="etiquette-prix">Prix : </span> 
+            <span class="valeur-prix montant montant-fr">29.50</span>
+          </div>
+          <div class="quantite">
+            <span class="etiquette-qte">Quantité : </span> 
+            <span class="valeur-qte">
+              <input type="number" name="quantite" value="2" min="1" max="9">
+              <button class="btn-modifier material-icons" title="Cliquez pour mettre à jour la quantité pour cet article">update</button>
+            </span>
+          </div>
+          <div class="total-article">
+            <span class="etiquette-soustotal">Sous-total : </span>
+            <span class="valeur-soustotal montant montant-fr">59.00</span>
+          </div>
+        </div>
+      </article>
     </div>
     <div class="sommaire-panier">
-      <span class="nb-articles">(<?= $_->nbArticles; ?> 7)</span>
-      <span class="sous-total"><?= $_->sousTotal; ?> 187.48 $</span>
+      <span class="nb-articles">(<?= $_->nbArticles; ?> <span class="nombre">2</span>)</span>
+      <span class="sous-total">
+        <?= $_->sousTotal; ?> 
+        <span class="montant montant-fr">59.00</span>
+      </span>
       <span class="btn-commander"><?= $_->btnCommander; ?></span>
     </div>
   </article>

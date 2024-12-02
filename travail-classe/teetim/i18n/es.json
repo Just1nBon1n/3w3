@@ -1,0 +1,115 @@
+{
+	"entete": {
+		"altLogo": "Página principal",
+		"placeholderRecherche": "Palabras clave de búsqueda",
+		"menuTeeshirts": "Camisetas",
+		"menuCasquettes": "Gorras",
+		"menuHoodies": "Sudaderas",
+		"menuAide": "Ayuda",
+		"menuAPropos": "Sobre nosotros"
+	},
+	"pp": {
+		"achatsTitre": "Mis pedidos",
+		"navAchatsFaq": "Preguntas frecuentes",
+		"navAchatsLivraison": "Entrega de paquetes",
+		"navAchatsConditions": "Condiciones de venta",
+		"navAchatsConfidentialite": "Política de privacidad",
+		"aProposTitre": "Sobre teeTIM",
+		"aProposCompagnie": "Nuestra compañía",
+		"aProposEquipe": "Equipo",
+		"aProposEmplois": "Empleos",
+		"joindreTitre": "Contáctenos",
+		"joindreTelEtiquette": "Número gratuito: ",
+		"joindreCourrielEtiquette": "Correo electrónico: ",
+		"droits": "teeTIM - Todos los derechos reservados"
+	},
+	"index": {
+		"metaTitre": "fibras naturales ... diseño artificial",
+		"metaDesc": "Página principal del diseñador de ropa 100% hecha en Quebec, diseñada por estudiantes de TIM utilizando diseños producidos por inteligencia artificial, y hecha con fibras 100% naturales y orgánicas.",
+		"amorceTitre": "Camisetas, sudaderas y gorras hechas 💯 en Quebec",
+		"amorceSousTitre": "Diseñadas con ❤️ en TIM Maisonneuve",
+		"amorceSousTitre2": "con un poco de ayuda de DALL-E 😉",
+		"para1": "Hoy en día, la camiseta es un artículo esencial en el armario de todos. Y en un momento en que la cuestión ambiental se plantea más que nunca, preferimos camisetas hechas en Quebec para reducir el impacto ambiental y destacar la artesanía local.",
+		"para2": "Camiseta en forma de V, cuello redondo, suelta o ajustada, de manga corta o larga para los más frioleros, lisa o estampada para estilizar un atuendo... La camiseta está disponible en una variedad de colores, estilos y patrones."
+	},
+	"catalogue": {
+		"filtreEtiquette": "Filtrar por: ",
+		"filtreTous": "Todos los productos",
+		"triEtiquette": "Ordenar por: ",
+		"triAlea": "Aleatorio",
+		"triPrixAsc": "Precio/ascendente",
+		"triPrixDesc": "Precio/descendente",
+		"triNomAsc": "Nombre/ascendente",
+		"triNomDesc": "Nombre/descendente",
+		"triDateAjoutDesc": "Nuevo",
+		"triVentesDesc": "Más vendido"
+	},
+	"teeshirts": {
+		"metaTitre": "Camisetas de algodón orgánico 100%",
+		"metaDesc": "Nuestras camisetas están hechas con los mejores materiales, hechas en Quebec, diseñadas por...",
+		"titrePage": "Camisetas"
+	},
+	"casquettes": {
+		"metaTitre": "gorras elegantes y cómodas",
+		"metaDesc": "[IMPORTANTE definir claramente la descripción de la página de gorras antes de desplegar el sitio!!!]",
+		"titrePage": "Gorras"
+	},
+	"hoodies": {
+		"metaTitre": "sudaderas",
+		"metaDesc": "[IMPORTANTE definir claramente la descripción de la página de sudaderas antes de desplegar el sitio!!!]",
+		"titrePage": "Sudaderas y suéteres"
+	},
+	"panier": {
+		"metaTitre": "carrito de compras",
+		"metaDesc": "",
+		"titrePage": "Tu carrito de compras",
+		"nbArticles": "Total de artículos: ",
+		"sousTotal": "Subtotal: ",
+		"btnCommander": "Completar pedido"
+	},
+	"aide": {
+		"metaTitre": "estamos escuchando",
+		"metaDesc": "[IMPORTANTE completar]",
+		"titrePage": "Ayuda"
+	},
+	"apropos": {
+		"metaTitre": "sobre nosotros",
+		"metaDesc": "[IMPORTANTE completar]",
+		"titrePage": "¿Quiénes somos?"
+	},
+	"faq": {
+		"metaTitre": "tienes preguntas, tenemos respuestas",
+		"metaDesc": "[IMPORTANTE completar]",
+		"titrePage": "Preguntas frecuentes"
+	},
+	"livraison": {
+		"metaTitre": "envíos y devoluciones",
+		"metaDesc": "[IMPORTANTE completar]",
+		"titrePage": "Envíos y devoluciones"
+	},
+	"conditions": {
+		"metaTitre": "condiciones de venta",
+		"metaDesc": "[IMPORTANTE completar]",
+		"titrePage": "Condiciones de venta"
+	},
+	"confidentialite": {
+		"metaTitre": "privacidad",
+		"metaDesc": "[IMPORTANTE completar]",
+		"titrePage": "Nuestra política de privacidad"
+	},
+	"compagnie": {
+		"metaTitre": "compañía",
+		"metaDesc": "[IMPORTANTE completar]",
+		"titrePage": "Nuestra compañía"
+	},
+	"equipe": {
+		"metaTitre": "equipo",
+		"metaDesc": "[IMPORTANTE completar]",
+		"titrePage": "El equipo"
+	},
+	"emplois": {
+		"metaTitre": "empleos",
+		"metaDesc": "[IMPORTANTE completar]",
+		"titrePage": "Empleos disponibles"
+	}
+}

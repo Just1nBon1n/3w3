@@ -1,11 +1,20 @@
 <?php
-$page = "teeshirts";
-include('parties-communes/entete.php');
+	$page = "teeshirts";
+	include('parties-communes/entete.php');
 
-/*
+	/*
 	Intégration des produits "teeshirts"
-*/
+	*/
+	// Inclure la librairie de gestion du catalogue
+	include("lib/catalogue.php");
 
+	// Filtre et tri
+	$tri = $_GET["tri"] ?? "RAND()";
+	$filtre = $_GET["filtre"] ?? "tous";
+
+	// Obtenir les thèmes et produist de la catégorie Teeshirts (1).
+	$themes = obtenirThemes($cnx, 1);
+	$produits = obtenirProduits($cnx, 1, $filtre, $tri);
 ?>
 <main class="page-produits page-teeshirts">
 	<article class="amorce">
@@ -15,77 +24,63 @@ include('parties-communes/entete.php');
 				<label for="filtre"><?= $textes->catalogue->filtreEtiquette; ?></label>
 				<select name="filtre" id="filtre">
 					<option value="tous">
-						<?= $textes->catalogue->filtreTous." (".$compteProduitsTotal.")"; ?>
+						<?= $textes->catalogue->filtreTous; ?>
 					</option>
-
-					<?php foreach ($categories as $codeCat => $nomCat) : ?>
-						<!-- 
-							TP/Volet 2 : Point 5 : Catégorie sélectionnée 
-						-->
-						<option value="<?= $codeCat; ?>" <?= ($codeCat==$filtre) ? "selected" : ""; ?>>
-							<?= $nomCat; ?>
+					<?php foreach($themes as $thm): ?>
+					<!-- Gabarit pour chaque "thème" -->
+						<option 
+							value="<?= $thm["theme"] ?>"
+							<?= ($filtre == $thm["theme"]) ? " selected" : ""; ?>
+						>
+							<?= $thm["theme"] ?>
 						</option>
+					<!-- FIN gabarit thème -->
 					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="tri">
-				<!-- TP/Volet 2 : Point 1 : Étiquettes de tri externalisées -->
 				<label for="tri"><?= $textes->catalogue->triEtiquette; ?></label>
 				<select name="tri" id="tri">
-					<option value="aleatoire">* <?= $textes->catalogue->triAlea; ?></option>
-					<option <?= ($tri == "prixAsc") ? "selected" : ""; ?> value="prixAsc">
-						* <?= $textes->catalogue->triPrixAsc; ?>
+					<option value="RAND()"><?= $textes->catalogue->triAlea; ?></option>
+					<option <?= ($tri == "prix ASC") ? "selected" : ""; ?> value="prix ASC">
+						<?= $textes->catalogue->triPrixAsc; ?>
 					</option>
-					<option <?= ($tri == "prixDesc") ? "selected" : ""; ?> value="prixDesc">
-						* <?= $textes->catalogue->triPrixDesc; ?>
+					<option <?= ($tri == "prix DESC") ? "selected" : ""; ?> value="prix DESC">
+						<?= $textes->catalogue->triPrixDesc; ?>
 					</option>
-					<option <?= ($tri == "nomAsc") ? "selected" : ""; ?> value="nomAsc">
+					<option <?= ($tri == "nom ASC") ? "selected" : ""; ?> value="nom ASC">
 						<?= $textes->catalogue->triNomAsc; ?>
 					</option>
-					<option <?= ($tri == "nomDesc") ? "selected" : ""; ?> value="nomDesc">
+					<option <?= ($tri == "nom DESC") ? "selected" : ""; ?> value="nom DESC">
 						<?= $textes->catalogue->triNomDesc; ?>
 					</option>
-					<option <?= ($tri == "dacDesc") ? "selected" : ""; ?> value="dacDesc">
+					<option <?= ($tri == "dac DESC") ? "selected" : ""; ?> value="dac DESC">
 						<?= $textes->catalogue->triDateAjoutDesc; ?>
 					</option>
-					<option <?= ($tri == "ventesDesc") ? "selected" : ""; ?> value="ventesDesc">
-						* <?= $textes->catalogue->triVentesDesc; ?>
+					<option <?= ($tri == "ventes DESC") ? "selected" : ""; ?> value="ventes DESC">
+						<?= $textes->catalogue->triVentesDesc; ?>
 					</option>
 				</select>
 			</div>
 		</form>
 	</article>
-	<article class="principal">
+	<article class="principal liste-produits">
 		<?php foreach($produits as $prod) : ?>
-			<div class="produit">
-				<!-- 
-					TP/Volet 2 : Point 4 : Badge des ventes 
-				-->
-				<?php if($prod->ventes > 0) : ?>
-					<div class="ventes"><?= $prod->ventes; ?></div>
+			<div class="produit" data-pid="<?= $prod["id"]; ?>">
+				<?php if($prod["ventes"] > 0) : ?>
+					<div class="ventes"><?= $prod["ventes"]; ?></div>
 				<?php endif; ?>
-				<!-- 
-					TP/Volet 2 : Point 2 : Si le catalogue n'est pas traduit dans la langue 
-					courante, utiliser le français 
-				-->
 				<span class="image">
-					<img src="images/produits/teeshirts/<?= $prod->id; ?>.webp" alt="<?= $prod->nom->$langue ?? $prod->nom->fr; ?>">
+					<img 
+						src="images/produits/teeshirts/<?= $prod["image"]; ?>" 
+						alt=""
+					>
 				</span>
-				<span class="nom"><?= $prod->nom->$langue ?? $prod->nom->fr; ?></span>
-				<span class="prix"><?= number_format($prod->prix, 2); ?> $</span>
+				<span class="nom"><?= $prod["nom"]; ?></span>
+				<span class="prix"><?= $prod["prix"]; ?></span>
+				<button class="btn-ajouter">Ajouter au panier</button>
 			</div>
 		<?php endforeach; ?>
 	</article>
 </main>
-<!-- Le gabarit utilisé pour implémenter l'affichage avec la méthode Ajax (JS asynchrone) -->
-<template id="gabarit-produit">
-	<div class="produit">
-		<div class="ventes"></div>
-		<span class="image">
-			<img src="images/produits/teeshirts/" alt="">
-		</span>
-		<span class="nom"></span>
-		<span class="prix"></span>
-	</div>
-</template>
 <?php include('parties-communes/pied2page.php'); ?>

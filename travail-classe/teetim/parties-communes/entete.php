@@ -1,4 +1,36 @@
 <?php
+	// On veut travailler avec les variables de session
+	session_start();
+
+	// Inclure les librairies nécessaire pour manipuler les données. 
+	include("lib/sql.php");
+	// Se connecter à la BD MySQL.
+	$cnx = connexion();
+
+	// Gestion du panier
+	include("lib/panier.php");
+
+	$idPanier = 0;
+
+	if(isset($_COOKIE["teetim-panier"])) {
+		// Vérifier que la valeur dans le cookie correspond à un panier dans la BD
+		$idPanier = obtenirIdPanier($cnx, $_COOKIE["teetim-panier"]);
+	}
+
+	// Si $idPanier est 0 ----> il n'y a pas de panier valide !!!
+	if($idPanier == 0) {
+		// Générer un code unique pour le chariot de l'utilisateur
+		$codePanier = uniqid("teetim", true);
+		// echo $codePanier;
+		// Planter ce code dans un témoin HTTP dans le navigateur du visiteur au site
+		setcookie("teetim-panier", $codePanier, time()+365*24*60*60);
+		// Créer un enregistrement dans la table panier ayant ce code de panier
+		$idPanier = creerPanier($cnx, $codePanier);
+	}
+
+	// Stocker le id du panier dans la "session utilisateur"
+	$_SESSION["idPanier"] = $idPanier;
+
 	// Définir le tableau des langues disponibles
 	$languesDispo = [];
 	$dossierI18n = scandir('i18n');
@@ -64,7 +96,31 @@
 			<nav class="barre-logo">
 				<label for="cc-btn-responsive" class="material-icons burger">menu</label>
 				<a class="logo" href="index.php"><img src="images/logo.png" alt="<?= $_ent->altLogo; ?>"></a>
-				<a class="material-icons panier" href="panier.php">shopping_cart</a>
+				<!-- [TPv3] Point 8 : Badge de l'icone du panier d'achats -->
+				<div class="panier-icone">
+					<label for="panier-cc" class="material-icons">shopping_cart</label>
+					<input type="checkbox" id="panier-cc">
+					<!-- 
+						[TPv3] Point 1 : utilisez la variable $detailPanier pour générer 
+						dynamiquement le contenu du sommaire panier de l'entête.
+					-->
+					<div class="sommaire-panier">
+						<div class="ligne1">
+							<span class="nb-articles">
+								<span class="etiquette">#Articles : </span>
+								<span class="nombre">2</span>
+							</span>
+							<label for="panier-cc" class="material-icons">close</label>
+						</div>
+						<div class="ligne2">
+							<span class="sous-titre">Sous-total du panier</span>
+							<span class="sous-total montant-fr">59.00</span>
+						</div>
+						<div class="ligne3 btn-afficher-panier">
+							<a href="panier.php">Voir le panier d'achats</a>
+						</div>
+					</div>
+				</div>
 				<input class="recherche" type="search" name="motscles" placeholder="<?= $_ent->placeholderRecherche; ?>">
 			</nav>
 			<input type="checkbox" id="cc-btn-responsive">
